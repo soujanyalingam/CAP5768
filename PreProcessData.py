@@ -45,7 +45,7 @@ def RemoveNullValues(filename):
     NullSumDF = data.isnull().sum()  # Check is there are Null values in data
     #print(NullSumDF)
     #print(percentEmpty(data))   # To check percentage of Null data in columns
-    data.dropna(subset=['Case Number', 'District', 'Latitude'], how='any', inplace=True)
+    data.dropna(subset=['Case Number', 'District', 'Latitude', 'Community Area'], how='any', inplace=True)
     # print(percentEmpty(data))
     data = data.sort_values('Date')  # Sort via Date
     #data.drop(data.tail(1).index, inplace=True)  # Drop last row (header is appended in last row is removed, no data loss)

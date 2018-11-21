@@ -21,13 +21,30 @@ while (operation != 'E'):
         print("Exiting the Menu. Bye...")
         break
 
-    print("Select an Operation: (1) Display Crime Trend by Year  (2) Load Tweets (On-demand)  (3) Preprocess data (4) Exit.")
+    print("Select an Operation: (1) Visuallize/Analyze Data (2) Download Fresh Data  (3) Preprocess data (4) Exit.")
     operation = input("To select, type  1  2  3  or 4 : \n")
-    if operation == '1' :
-        Visualizations.ShowTimeSeries(filename)
+
+    if operation == '1':
+        print("Select an Operation: (1) Display year wise trend (2) Display types of crime (3) Display Crime by Community (4) Display Domestic violence by year and month  (5) Display the location of Crime.")
+        op_display = input("To select, type  1  2  3  or 4 : \n")
+        if op_display == '1':  #Display Time Series of data
+            Visualizations.ShowTimeSeries(filename)
+        if op_display == '2':  # Display type of crimes and their relative frequencies.
+            Visualizations.ShowCrimePieChart(filename)
+        if op_display == '3':  # Crime by community area in Chicago
+            Visualizations.ShowCrimeBarPlotByCommunity(filename)
+        if op_display == '4':  # Domestic Violence by year and month
+            Visualizations.DisplayDometicViolenceCrime(filename)
+        if op_display == '5':
+            Visualizations.DisplayCrimeLocation(filename)
+
+
+    if operation == '2':
+        print()# Download data - Placeholder
 
     if operation == '3':
         InputDataSet.CallPreProcessData()
 
-
+    if operation == '4':
+        break;
 
